@@ -5,9 +5,7 @@ An app that tells you who's home through the router
 Devices can be used to monitor the activity of people in an environment. This tool will monitor the attached devices and provide a notification system. This will be first used to make requests to web APIs and later to connect to other IoT displays.
 #Goals  
 Monitor network attached devices via Ruby webserver on a raspberry pi. When a device is added or removed from the network send notifications to configured APIs.
-#Cron
-env EDITOR=nano crontab -e  
-*/5 * * * * /bin/bash -l -c 'ruby Documents/RobotMermaid/MarcoPolo/marcoPolo.rb'
+
 
 #Stories  
 1. As a developer I should have working knowledge of a web scraping or headless browser  

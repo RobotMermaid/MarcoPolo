@@ -1,15 +1,34 @@
 require 'capybara'
 require 'capybara/poltergeist'
+require 'yaml'
+
+
+config = YAML::load_file(File.join(__dir__, 'config.yaml'))
+# config = YAML.load_file("/Users/Vesper/Documents/RobotMermaid/MarcoPolo/config.yaml")
+@address = config["config"]["address"]
+@login = config["config"]["login"]
+@userNameField = config["config"]["userNameField"]
+@userName = config["config"]["userName"]
+@userPasswordField = config["config"]["userPasswordField"]
+@userPassword = config["config"]["userPassword"]
+@deviceFile = config["config"]["deviceFile"]
+@eventName = config["config"]["eventName"]
+@apiKey = config["config"]["apiKey"]
+
+
+puts 'ohai'
+
 Capybara.default_driver = :poltergeist
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false)
 end
 
 browser = Capybara.current_session
-browser.visit "http://10.0.0.1"
-browser.fill_in('loginUsername', with: 'admin')
-browser.fill_in('loginPassword', with: 'password')
-browser.click_button('Log In')
+browser.visit 'http://10.0.0.1'
+browser.fill_in(@userNameField, with: @userName)
+# browser.fill_in('loginUsername', with: 'admin')
+browser.fill_in(@userPasswordField, with: @userPassword)
+browser.click_button(@login)
 puts browser.current_url
 # "http://10.0.0.1/at_a_glance.asp"
 deviceTable = browser.find_by_id("internet-usage")
@@ -21,29 +40,17 @@ devicesAllDivs.each do |div|
   deviceList[key] = value == "On" ? 'here' : 'gone'
 end
 
-File.rename('devicesNow.json', 'devicesMinsAgo.json')
-File.open('devicesNow.json', 'w') { |file| file.write(deviceList.to_json) }
-puts 'new file written'
+File.rename(@deviceFile, 'devicesMinsAgo.json')
+File.open(@deviceFile, 'w') { |file| file.write(deviceList.to_json) }
+puts 'i got this'
 
 file = File.read('devicesMinsAgo.json')
 devices_old = JSON.parse(file)
 difference = []
 email_string = ""
 
-# if deviceList.keys == devices_old.keys
-#   puts "they match"
-# elsif deviceList.size > devices_old.size
-#   newDevice = deviceList.keys-devices_old.keys
-#   difference << newDevice
-#   puts newDevice
-# else
-#   puts  newDevice = devices_old.keys-deviceList.keys
-#   difference << newDevice
-#   puts newDevice
-# end
 if deviceList.keys != devices_old.keys
   deviceList.size > devices_old.size ? newDevice = deviceList.keys-devices_old.keys : newDevice = devices_old.keys-deviceList.keys
-
   email_string << " #{newDevice} is new -"
   puts newDevice
 end
@@ -51,7 +58,6 @@ end
 deviceList.each do |k, v|
   if v != devices_old[k]
     email_string << " #{k} is now #{v} - "
-
   end
 end
 
@@ -62,6 +68,3 @@ if (email_string.length > 0)
   '{"value1":"#{email_string}"}' \
   https://maker.ifttt.com/trigger/network_change/with/key/pzoBEghOg1aYYaHGEWam9HfN6wjdk3u02qIRN2kVAVN`
 end
-
-
-# h.values_at("cow", "cat")  #=> ["bovine", "feline"]
