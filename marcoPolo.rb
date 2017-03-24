@@ -42,7 +42,7 @@ end
 
 File.rename(@deviceFile, 'devicesMinsAgo.json')
 File.open(@deviceFile, 'w') { |file| file.write(deviceList.to_json) }
-puts 'i got this'
+puts "shiny! let's go be bad guys"
 
 file = File.read('devicesMinsAgo.json')
 devices_old = JSON.parse(file)

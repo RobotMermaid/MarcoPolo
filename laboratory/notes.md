@@ -1,7 +1,7 @@
 http://10.0.0.1/at_a_glance.asp
 
 ##a faire   
-* yaml file to configure - done 
+* yaml file to configure - done
 * get app on raspberry pi
 
 
@@ -19,8 +19,52 @@ still need to figure out how to get MarcoPolo onto the pi
 * capybara: https://github.com/wrightmhw/SpotifyAlarm
 * file - deviceList
 
+find ip address on the router 10.0.0.1
+ssh pi@192.168.1.13 (whichever ip address the router gives you)
+password is raspberrypi
+to logout: exit
+there is a marcoPolo folder in Documents
+
+Paul found this:
+// nokogiri requires Ruby >= 2.1.0
+
+sudo apt-get update
+sudo apt-get upgrade
+
+ruby --version
+
+// if you have >= 2.1.0 then you don't need rvm
+
+curl -L https://get.rvm.io | bash -s stable --ruby
+
+source ~/.rvm/scripts/rvm
+
+
+sudo gem install capybara
+
+
+wilson
+https://rvm.io/rvm/install
+\curl -sSL https://get.rvm.io | bash
+source /home/pi/.rvm/scripts/rvm
+rvm install 2.4
+
+<!-- ERROR:  Error installing capybara:
+	rack requires Ruby version >= 2.2.2. -->
+  <!--ruby -v => ruby 2.4.1p111 (2017-03-22 revision 58053) [armv7l-linux-eabihf] -->
+  system ruby vs implementation ruby?
+
+  Quick test: the output of sudo ruby -v
+  <!-- ruby 2.1.5p273 (2014-11-13) [arm-linux-gnueabihf]
+ -->
+  sudo is the super user and more conservative
+  leave off the sudo in gem install
+
+rvm install 2.2.2
+
 ###crontab  
 * https://crontab.guru/tips.html  
+* https://linuxacademy.com/blog/linux/the-cron-daemon/  
   was simpler than instructions  
 in terminal   
   ``env EDITOR=nano crontab -e``  
