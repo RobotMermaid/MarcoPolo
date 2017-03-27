@@ -1,9 +1,5 @@
 http://10.0.0.1/at_a_glance.asp
 
-##a faire   
-* yaml file to configure - done
-* get app on raspberry pi
-
 
 ###Capybara   
 * https://gist.github.com/zhengjia/428105  
@@ -62,12 +58,73 @@ rvm install 2.4
 
 rvm install 2.2.2
 
+reinstalled capybara phantomjs poltergeist in marcopolo folder on pi
+must relogin to load those!!
+
+phantomjs is listed as a gem but
+<!-- failed to detect the version of the executable at '/usr/bin/phantomjs' -->
+phantomjs --version  returns nothing
+uninstalled phantomjs with apt-get in sudo
+installed node
+installed npm
+tried to install phantom from npm = no success
+phantomjs is deprecated?! phantomjs-prebuilt
+
+
+
+<!-- ******************* -->
+is my pi a  Raspberry Pi 2 B ARM Cortex A-7 processor?
+binaries available are for different kind
+cat /proc/cpuinfo =>
+processor: 0
+model name	: A Processor rev 5 (v7l)
+BogoMIPS	: 38.40
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xc07
+CPU revision	: 5
+
+Hardware	: BCM2709
+Revision	: a21041
+Serial		: 00000000f55b37ea
+
+release date: Q1 2015
+model: 2 Model B
+PCB revision: 1.1
+memory: 1 GB
+(Mfg by Embest)
+http://elinux.org/RPi_HardwareHistory#Board_Revision_History
+
+
+// on laptop
+<!-- -O, --remote-name
+       Write output to a local file named like the remote file we  get.
+       (Only  the file part of the remote file is used, the path is cut
+       off.) -->
+curl -O https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v2.1.1-wheezy-jessie/phantomjs_2.1.1_armhf.deb
+
+scp phantomjs_2.1.1_armhf.deb pi@10.0.0.19:
+
+// on pi
+
+sudo dpkg -i phantomjs_2.1.1_armhf.deb
+
+source ~/.bash
+
+phantomjs —version
+
+
+https://github.com/fg2it/phantomjs-on-raspberry/releases/tag/v2.1.1-wheezy-jessie
+
+
 ###crontab  
 * https://crontab.guru/tips.html  
 * https://linuxacademy.com/blog/linux/the-cron-daemon/  
   was simpler than instructions  
 in terminal   
-  ``env EDITOR=nano crontab -e``  
+  ``  env EDITOR=nano crontab -e  ``  
 in crontab  
   ``*/5 * * * * /bin/bash -l -c 'ruby Documents/RobotMermaid/MarcoPolo/marcoPolo.rb'``    
 had to wrap the ruby ``/bin/bash -l -c``  
@@ -78,6 +135,9 @@ which means run thru bash script (from man bash)
                  assigned to the positional parameters, starting with $0.
 no space in ``*/5`  
 ``/bin/bash`` the shell it should run in  
+
+on the pi
+*/5 * * * * /bin/bash -l -c 'cd ~/Documents/MarcoPolo/ ; ruby marcoPolo.rb'
 
 ###File   
 * https://ruby-doc.org/core-2.2.0/File.html    
@@ -95,3 +155,4 @@ can't get the email_string in value to format right -> bad request
 ##the Entelechy aka IRL  
 the iphones seem to hop on and off the network
 mbigua appeared on the network at 12:05AM off at 1:40AM on at 2:05AM!?  
+If Wi-Fi Assist is left activated, your iPhone will automatically use cellular data whenever it finds that a Wi-Fi router signal is weak - Open the "settings" app on your home screen, tap on the "cellular" tab, and scroll down to the very bottom of the list. There you'll see a toggle for "Wi-Fi Assist." Flick it off.

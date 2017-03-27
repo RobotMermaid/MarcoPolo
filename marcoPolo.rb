@@ -66,5 +66,5 @@ puts email_string
 if (email_string.length > 0)
   `curl -X POST -H "Content-Type: application/json" -d \
   '{"value1":"#{email_string}"}' \
-  https://maker.ifttt.com/trigger/network_change/with/key/pzoBEghOg1aYYaHGEWam9HfN6wjdk3u02qIRN2kVAVN`
+  https://maker.ifttt.com/trigger/@eventName/with/key/apiKey`
 end
