@@ -4,7 +4,7 @@ require 'yaml'
 
 
 config = YAML::load_file(File.join(__dir__, 'config.yaml'))
-# config = YAML.load_file("/Users/Vesper/Documents/RobotMermaid/MarcoPolo/config.yaml")
+
 @address = config["config"]["address"]
 @login = config["config"]["login"]
 @userNameField = config["config"]["userNameField"]
@@ -26,9 +26,11 @@ end
 browser = Capybara.current_session
 browser.visit 'http://10.0.0.1'
 browser.fill_in(@userNameField, with: @userName)
+
 browser.fill_in(@userPasswordField, with: @userPassword)
 browser.click_button(@login)
 puts browser.current_url
+
 deviceTable = browser.find_by_id("internet-usage")
 devicesAllDivs = browser.within(deviceTable) {browser.all 'div.form-row'}
 deviceList = {}
@@ -44,6 +46,7 @@ puts "shiny! let's go be bad guys"
 
 file = File.read('devicesMinsAgo.json')
 devices_old = JSON.parse(file)
+
 email_string = ""
 
 if deviceList.keys != devices_old.keys
@@ -63,5 +66,5 @@ puts email_string
 if (email_string.length > 0)
   `curl -X POST -H "Content-Type: application/json" -d \
   '{"value1":"#{email_string}"}' \
-  https://maker.ifttt.com/trigger/@eventName/with/key/@apiKey`
+  https://maker.ifttt.com/trigger/network_change/with/key/pzoBEghOg1aYYaHGEWam9HfN6wjdk3u02qIRN2kVAVN`
 end
