@@ -22,7 +22,7 @@ Monitor network attached devices via Ruby webserver on a raspberry pi. When a de
 # Installation
 Comcast router
 raspberrypi 2 Model B arm7  
-ssh into the pi with the terminal
+'ssh' into the pi with the terminal
 
 ###Capybara   
 * Cheat Sheet: https://gist.github.com/zhengjia/428105
@@ -52,13 +52,13 @@ you have to install rvm
 
 Phantomjs was difficult to get on the pi:
 
-// from the laptop
+from the laptop  
 ``curl -O https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v2.1.1-wheezy-jessie/phantomjs_2.1.1_armhf.deb``
 
 ``scp phantomjs_2.1.1_armhf.deb pi@10.0.0.19:``
 note that colon at the end :)
 
-// on pi
+on pi  
 
 ``sudo dpkg -i phantomjs_2.1.1_armhf.deb``
 ``source ~/.bash``
@@ -72,7 +72,7 @@ in crontab - Runs every 5 minutes
    ``  */5 * * * * /bin/bash -l -c 'cd ~/Pathto/theFolder/ ; ruby marcoPolo.rb'  ``  
   you have to wrap the ruby to make it run as if from the login shell and from a string  
 
-###IFTTT
+###IFTTT  
 It was tricky to navigate:  
 * In 'My Applets' go to 'New Applet' button on the right (window has to be wide enough or it will disappear!) and then click on the blue '+this' text search for 'Maker Webhooks' and set up your events and triggers.
 * In 'Search' enter 'Maker' and on the 'Maker Webhooks' page go to the settings on top right. Go to the URL they give you to trigger an event and get the curl code.  
