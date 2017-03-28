@@ -18,7 +18,7 @@ Monitor network attached devices via Ruby webserver on a raspberry pi. When a de
 * Github to get my project onto the pi
 * raspberrypi to house the project
 
-![workflow](./workflow.png)
+<!-- ![workflow](./workflow.png) -->
 
 # Installation
 <!-- Comcast router
