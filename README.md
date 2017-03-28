@@ -18,12 +18,12 @@ Monitor network attached devices via Ruby webserver on a raspberry pi. When a de
 * Github to get my project onto the pi
 * raspberrypi to house the project
 
-<!-- ![workflow](./workflow.png) -->
+![workflow](./workflow.png)
 
 # Installation
-<!-- Comcast router
+Comcast router
 raspberrypi 2 Model B arm7  
-ssh into the pi with the terminal   -->
+ssh into the pi with the terminal  
 
 ###Capybara   
 * Cheat Sheet: https://gist.github.com/zhengjia/428105
