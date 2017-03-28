@@ -1,5 +1,19 @@
 http://10.0.0.1/at_a_glance.asp
 
+###TODO
+1. workflow : breakdown of what the app does
+2. Readme : improvements
+  installation and environment raspberry pi specs etc
+3. config : use figaro to keep private
+4. breakout : different parts in different modules
+
+
+###config   
+https://github.com/laserlemon/figaro/tree/v2
+https://github.com/laserlemon/figaro/issues/77
+breakout into it's own module   
+
+
 
 ###Capybara   
 * https://gist.github.com/zhengjia/428105  
@@ -40,6 +54,8 @@ sudo gem install capybara
 
 
 wilson
+
+sudo apt-get install ruby-dev
 https://rvm.io/rvm/install
 \curl -sSL https://get.rvm.io | bash
 source /home/pi/.rvm/scripts/rvm
@@ -121,27 +137,27 @@ https://github.com/fg2it/phantomjs-on-raspberry/releases/tag/v2.1.1-wheezy-jessi
 
 ###crontab  
 * https://crontab.guru/tips.html  
-* https://linuxacademy.com/blog/linux/the-cron-daemon/  
+* https://linuxacademy.com/blog/linux/the-cron-daemon/    
   was simpler than instructions  
 in terminal   
   ``  env EDITOR=nano crontab -e  ``  
 in crontab  
-  ``*/5 * * * * /bin/bash -l -c 'ruby Documents/RobotMermaid/MarcoPolo/marcoPolo.rb'``    
-had to wrap the ruby ``/bin/bash -l -c``  
+  ``  */5 * * * * /bin/bash -l -c 'ruby Documents/RobotMermaid/MarcoPolo/marcoPolo.rb'  ``    
+had to wrap the ruby ``  /bin/bash -l -c  ``  
 which means run thru bash script (from man bash)
 -l :Makes bash act as if it had been invoked as a login shell  
 -c string If  the  -c  option  is  present, then commands are read from
                  string.  If there are arguments after the  string,  they  are
                  assigned to the positional parameters, starting with $0.
-no space in ``*/5`  
-``/bin/bash`` the shell it should run in  
+no space in `` */5 ``  
+``  /bin/bash  `` the shell it should run in  
 
 on the pi
-*/5 * * * * /bin/bash -l -c 'cd ~/Documents/MarcoPolo/ ; ruby marcoPolo.rb'
+``  */5 * * * * /bin/bash -l -c 'cd ~/Documents/MarcoPolo/ ; ruby marcoPolo.rb'  ``  
 
-###File   
+###file    
 * https://ruby-doc.org/core-2.2.0/File.html    
-``File.open('devicesNow.json', 'w') { |file| file.write(deviceList.to_json) }``  
+``File.open('devicesNow.json', 'w') { |file| file.write(deviceList.to_json) }``   
 
 ###IFTTT  
 no docs!! https://platform.ifttt.com/docs
@@ -152,7 +168,7 @@ the curl code came straight from the maker.ifttt.com settings
 can't get the email_string in value to format right -> bad request
 
 
-##the Entelechy aka IRL  
+##the Entelechy aka IRL   
 the iphones seem to hop on and off the network
 mbigua appeared on the network at 12:05AM off at 1:40AM on at 2:05AM!?  
 If Wi-Fi Assist is left activated, your iPhone will automatically use cellular data whenever it finds that a Wi-Fi router signal is weak - Open the "settings" app on your home screen, tap on the "cellular" tab, and scroll down to the very bottom of the list. There you'll see a toggle for "Wi-Fi Assist." Flick it off.

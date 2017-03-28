@@ -24,7 +24,7 @@ Capybara.register_driver :poltergeist do |app|
 end
 
 browser = Capybara.current_session
-browser.visit 'http://10.0.0.1'
+browser.visit @address
 browser.fill_in(@userNameField, with: @userName)
 
 browser.fill_in(@userPasswordField, with: @userPassword)
@@ -66,5 +66,5 @@ puts email_string
 if (email_string.length > 0)
   `curl -X POST -H "Content-Type: application/json" -d \
   '{"value1":"#{email_string}"}' \
-  https://maker.ifttt.com/trigger/@eventName/with/key/apiKey`
+  https://maker.ifttt.com/trigger/@eventName/with/key/@apiKey`
 end
