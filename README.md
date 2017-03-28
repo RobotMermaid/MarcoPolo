@@ -19,7 +19,7 @@ Monitor network attached devices via Ruby webserver on a raspberry pi. When a de
 * raspberrypi to house the project  
 ![workflow](./workflow.png)
 
-# installation
+# Installation
 Comcast router
 raspberrypi 2 Model B arm7  
 ssh into the pi with the terminal
@@ -35,38 +35,37 @@ ssh pi@ipaddress
 
 to find out which pi you have:
 in the terminal:
-cat /proc/cpuinfo
+``cat /proc/cpuinfo``
 the revision number will tell you which version you have in the table here:
 http://elinux.org/RPi_HardwareHistory#Board_Revision_History
 
 to install ruby capybara poltergeist phantomjs
 don't install the gems with sudo just with gem install
 you have to install rvm
-sudo apt-get install ruby-dev
-\curl -sSL https://get.rvm.io | bash
-source /home/pi/.rvm/scripts/rvm  
-rvm install 2.4
+``sudo apt-get install ruby-dev``
+``\curl -sSL https://get.rvm.io | bash``
+``source /home/pi/.rvm/scripts/rvm ``
+``rvm install 2.4``
 
-gem install capybara
-gem install poltergeist  
+``gem install capybara``
+``gem install poltergeist ``
 
 Phantomjs was difficult to get on the pi:
 
 // from the laptop
-curl -O https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v2.1.1-wheezy-jessie/phantomjs_2.1.1_armhf.deb
+``curl -O https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v2.1.1-wheezy-jessie/phantomjs_2.1.1_armhf.deb``
 
-scp phantomjs_2.1.1_armhf.deb pi@10.0.0.19:
+``scp phantomjs_2.1.1_armhf.deb pi@10.0.0.19:``
+note that colon at the end :)
 
 // on pi
 
-sudo dpkg -i phantomjs_2.1.1_armhf.deb
+``sudo dpkg -i phantomjs_2.1.1_armhf.deb``
+``source ~/.bash``
 
-source ~/.bash
+``phantomjs —version``
 
-phantomjs —version
-
-
-###crontab
+###crontab  
 in terminal: to access the crontab   
   ``  env EDITOR=nano crontab -e  ``  
 in crontab - Runs every 5 minutes  
