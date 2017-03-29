@@ -53,15 +53,15 @@ http://elinux.org/RPi_HardwareHistory#Board_Revision_History
 
 to install ruby capybara poltergeist phantomjs
 don't install the gems with sudo just with gem install
-you have to install rvm
-``sudo apt-get install ruby-dev``
-``\curl -sSL https://get.rvm.io | bash``
-``source /home/pi/.rvm/scripts/rvm ``
+you have to install rvm  
+``sudo apt-get install ruby-dev``  
+``\curl -sSL https://get.rvm.io | bash``  
+``source /home/pi/.rvm/scripts/rvm ``  
 ``rvm install 2.4``
 
 ### Installing gems
 
-``gem install capybara``
+``gem install capybara``  
 ``gem install poltergeist ``
 
 ### Installing phantomjs
@@ -71,12 +71,12 @@ Phantomjs was difficult to get on the pi:
 from the laptop  
 ``curl -O https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v2.1.1-wheezy-jessie/phantomjs_2.1.1_armhf.deb``
 
-``scp phantomjs_2.1.1_armhf.deb pi@<ipaddress>:``
+``scp phantomjs_2.1.1_armhf.deb pi@<ipaddress>:``  
 note that colon at the end :)
 
 on pi  
 
-``sudo dpkg -i phantomjs_2.1.1_armhf.deb``
+``sudo dpkg -i phantomjs_2.1.1_armhf.deb``  
 ``source ~/.bash``
 
 check your installation works
