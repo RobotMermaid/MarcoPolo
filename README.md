@@ -16,7 +16,8 @@ Monitor network attached devices via Ruby deamon on a raspberry pi. When a devic
 * Cron to run the ruby file every 5 minutes
 * IFTTT.com to send a email when a change was detected
 * Github to get my project onto the pi
-* raspberrypi to house the project
+* raspberrypi to house the project  
+
 
 ![workflow](./workflow.png)
 
