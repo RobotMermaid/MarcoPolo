@@ -2,10 +2,10 @@
 An app that tells you who's home through the router
 
 # Summary  
-Devices can be used to monitor the activity of people in an environment. This tool will monitor the attached devices and provide a notification system. This will be first used to make requests to web APIs and later to connect to other IoT displays.  
+Devices can be used to monitor the activity of people in an environment. This tool will monitor Xfinity router for the attached devices and provide a notification system. This iteration makes requests to web APIs when devices come and go. Later versions will have a web API to connect IoT displays.  
 
 # Goals  
-Monitor network attached devices via Ruby webserver on a raspberry pi. When a device is added or removed from the network send notifications to configured APIs.
+Monitor network attached devices via Ruby deamon on a raspberry pi. When a device is added or removed from the network send notifications to configured APIs.
 
 # Process  
 * Capybara with phantomjs to navigate the webpage
@@ -78,6 +78,6 @@ It was tricky to navigate:
 * In 'My Applets' go to 'New Applet' button on the right (window has to be wide enough or it will disappear!) and then click on the blue '+this' text search for 'Maker Webhooks' and set up your events and triggers.
 * In 'Search' enter 'Maker' and on the 'Maker Webhooks' page go to the settings on top right. Go to the URL they give you to trigger an event and get the curl code.  
 
-###Notes  
+### Notes  
 the iphones are set with wi-fi assist by default which bumps them off the network if they perceive the signal to be too week. Can be changes under Settings/Cellular, at the very bottom.
 Still have a haunted laptop that likes to wake up in the middle of the night. That mystery is not yet solved...
