@@ -69,9 +69,11 @@ you have to install rvm
 Phantomjs was difficult to get on the pi:
 
 from the laptop  
+
 ``curl -O https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v2.1.1-wheezy-jessie/phantomjs_2.1.1_armhf.deb``
 
-``scp phantomjs_2.1.1_armhf.deb pi@<ipaddress>:``  
+``scp phantomjs_2.1.1_armhf.deb pi@<ipaddress>:``
+
 note that colon at the end :)
 
 on pi  
@@ -85,9 +87,13 @@ check your installation works
 
 ## crontab  
 in terminal: to access the crontab   
+
   ``  env EDITOR=nano crontab -e  ``  
+
 in crontab - Runs every 5 minutes  
+
    ``  */5 * * * * /bin/bash -l -c 'cd ~/Pathto/theFolder/ ; ruby marcoPolo.rb'  ``  
+
   you have to wrap the ruby to make it run as if from the login shell and from a string  
 
 ## IFTTT  
@@ -97,5 +103,5 @@ It was tricky to navigate:
 * In 'Search' enter 'Maker' and on the 'Maker Webhooks' page go to the settings on top right. Go to the URL they give you to trigger an event and get the curl code.  
 
 ## Notes  
-the iphones are set with wi-fi assist by default which bumps them off the network if they perceive the signal to be too week. Can be changes under Settings/Cellular, at the very bottom.
+The iphones are set with wi-fi assist by default which bumps them off the network if they perceive the signal to be too week. Can be changes under Settings/Cellular, at the very bottom.
 Still have a haunted laptop that likes to wake up in the middle of the night. That mystery is not yet solved...
