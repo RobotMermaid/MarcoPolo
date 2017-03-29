@@ -2,7 +2,7 @@
 An app that tells you who's home through the router
 
 # Summary  
-Devices can be used to monitor the activity of people in an environment. This tool will monitor a Xfinity router for the attached devices and provide a notification framework. This iteration makes requests to web APIs when devices are added and remved from the network. Later versions will have a web API to connect IoT displays.  
+Devices can be used to monitor the activity of people in an environment. This tool monitors an Xfinity router for the attached devices and provides a notification framework. This iteration makes requests to web APIs when devices are added and removed from the network. Later versions will have a web API to connect IoT displays. 
 
 # Goals  
 Monitor network attached devices via Ruby deamon on a raspberry pi. When a device is added or removed from the network send notifications to configured APIs.
