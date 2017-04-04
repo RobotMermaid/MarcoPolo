@@ -1,10 +1,9 @@
-config:
-  address: <http://routerIPaddress>
-  login: <Log In Button Name>
-  userNameField: <Name of Login Username input field>
-  userName: <login>
-  userPasswordField: <Name of Login Password input field>
-  userPassword: <password>
-  deviceFile: <nameOfFIle.json>
-  eventName: <name_of_event>
-  apiKey: <apiKey>
+
+address: <http://routerIPaddress>
+login: <Log In Button Name>
+userNameField: <Name of Login Username input field>
+userName: <login>
+userPasswordField: <Name of Login Password input field>
+userPassword: <password>
+eventName: <name_of_event>
+apiKey: <apiKey>
