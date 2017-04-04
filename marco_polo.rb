@@ -24,11 +24,6 @@ class MarcoPolo
     deviceTable = @browser.find_by_id("internet-usage")
     @devicesAllDivs = @browser.within(deviceTable) {@browser.all 'div.form-row'}
     all_devices
-    # @devicesAllDivs.each do |div|
-    #   key = div.find('span.readonlyLabel').text
-    #   value  = div.find('span.on-off').text
-    #   @deviceList[key] = value == "On" ? 'here' : 'gone'
-    # end
   end
 
   def read_devices
@@ -72,7 +67,6 @@ class MarcoPolo
       @deviceList[key] = value == "On" ? 'here' : 'gone'
     end
   end
-
 end
 
 puts 'ohai'
